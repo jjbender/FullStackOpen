@@ -1,5 +1,13 @@
-# dep folder
+
+# Ignore node_modules in all subdirectories
 node_modules/
+
+# Ignore public folders in all subdirectories
+public/
+
+# Ignore package.json and package-lock.json in all subdirectories
+**/package.json
+**/package-lock.json
  
 # cash Next.js
 .next/
