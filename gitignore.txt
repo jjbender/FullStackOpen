@@ -1,0 +1,31 @@
+# dep folder
+node_modules/
+ 
+# cash Next.js
+.next/
+ 
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+ 
+# env + keys
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+ 
+# temp code + home env
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# package files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# MacOS system files
+*.DS_Store
