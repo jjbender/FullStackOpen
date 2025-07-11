@@ -8,11 +8,9 @@ const Header = ({course}) => {
 
 const Part = ({part, exercises}) => {
   console.log(`Part - ${part}, Exercise number: ${exercises}`);
-
-
   return (
     <div>
-      <p> Part "{part}". Total exercises per part: {exercises} </p> 
+      <p> Part "{part}".Exercises: {exercises} </p> 
     </div>
   )
   
@@ -22,21 +20,18 @@ const Content = ({ parts }) => {
   console.log('Content includes parts:', parts);
   return (
     <div>
-      <Part part={parts[0].name} exercises={parts[0].exercises}/>
-      <Part part={parts[1].name} exercises={parts[1].exercises}/>
-      <Part part={parts[2].name} exercises={parts[2].exercises}/> 
+      {parts.map((p) => (
+        <Part key = {p.id} part = {p.name} exercises = {p.exercises} />
+      ))}
     </div>
-  )
+  );
 }
 
-const Total = ({ parts }) => {
-  const totalExercises = parts[0].exercises + parts[1].exercises + parts[2].exercises
-  console.log(totalExercises)
-  return (
-    <div>
-      <p>Total number of exercises: {totalExercises}</p>  
-    </div>
-  )
+const Total = ({parts}) => {
+  const total = parts.reduce((sum, part) => sum + part.exercises, 0);
+  return (<>
+<p> Total of exercises: {total}</p>
+  </>);
 }
 
 const App = () => {
@@ -67,7 +62,7 @@ const App = () => {
     <div>
       <Header course={course.name} />
       <Content parts={course.parts} />
-      {/*<Total parts={course.parts} /> */}
+      <Total parts={course.parts} />
     </div>
   )
   }
